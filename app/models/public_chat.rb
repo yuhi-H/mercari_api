@@ -1,0 +1,2 @@
+class PublicChat < ApplicationRecord
+end
