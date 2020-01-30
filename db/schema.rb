@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_29_105513) do
+ActiveRecord::Schema.define(version: 2020_01_30_022142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,4 +99,18 @@ ActiveRecord::Schema.define(version: 2020_01_29_105513) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "evaluations", "users", column: "evaluate_id"
+  add_foreign_key "evaluations", "users", column: "evaluated_id"
+  add_foreign_key "favorites", "items"
+  add_foreign_key "favorites", "users"
+  add_foreign_key "items", "users"
+  add_foreign_key "private_chats", "items"
+  add_foreign_key "private_chats", "users"
+  add_foreign_key "public_chats", "items"
+  add_foreign_key "public_chats", "users"
+  add_foreign_key "purchases", "items"
+  add_foreign_key "purchases", "users"
+  add_foreign_key "purchases", "users", column: "owner_id"
+  add_foreign_key "relationships", "users", column: "follower_id"
+  add_foreign_key "relationships", "users", column: "following_id"
 end
